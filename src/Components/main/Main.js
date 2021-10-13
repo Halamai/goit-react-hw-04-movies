@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
-import { Route, Switch } from "react-router";
-import MovieDetailsPage from "../pages/MovieDetailsPage";
+import { Redirect, Route, Switch } from "react-router";
+import MovieDetailsPage from "../../pages/MovieDetailsPage";
+
 import { mainRoutes } from "../routes/mainRoutes";
 import { MainContainer } from "./MainStyled";
 
@@ -22,6 +23,7 @@ const Main = () => {
               key={route.path}
             />
           ))}
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     </MainContainer>

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router";
 import { fetchMoviesCast } from "../../services/movies-api.js";
 
 const Cast = ({ id }) => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    fetchMoviesCast(id).then(({ cast }) => {
-      setCast(cast);
-      // console.log(cast);
-    });
+    fetchMoviesCast(id)
+      .then(({ cast }) => {
+        setCast(cast);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   return (

@@ -5,7 +5,7 @@ export const mainRoutes = [
     name: "Home",
     path: "/",
     component: lazy(() =>
-      import("../pages/HomePage" /* webpackChunkName: "HomePage" */)
+      import("../../pages/HomePage" /* webpackChunkName: "HomePage" */)
     ),
     exact: true,
   },
@@ -14,7 +14,7 @@ export const mainRoutes = [
     name: "Movies",
     path: "/movies",
     component: lazy(() =>
-      import("../pages/MoviesPage" /* webpackChunkName: "MoviesPage" */)
+      import("../../pages/MoviesPage" /* webpackChunkName: "MoviesPage" */)
     ),
     exact: true,
   },

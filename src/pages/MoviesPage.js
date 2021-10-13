@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchMuvieBySearchName } from "../../services/movies-api";
-import RenderMovie from "../renderMovie/RenderMovie";
+import { fetchMuvieBySearchName } from "../services/movies-api";
+import RenderMovie from "../Components/renderMovie/RenderMovie";
 import { useHistory, useLocation } from "react-router-dom";
 import queryString from "query-string";
 
@@ -14,7 +14,9 @@ const MoviesPage = () => {
     const parsed = queryString.parse(location.search);
     // console.log(parsed);
     if (parsed.query) {
-      fetchMuvieBySearchName(parsed.query).then((films) => setFilms(films));
+      fetchMuvieBySearchName(parsed.query)
+        .then((films) => setFilms(films))
+        .catch((error) => console.dir(error));
       setFilm(parsed.query);
     }
   }, []);
@@ -25,7 +27,10 @@ const MoviesPage = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    fetchMuvieBySearchName(nameFilm).then((films) => setFilms(films));
+    fetchMuvieBySearchName(nameFilm)
+      .then((res) => setFilms(res))
+      .catch((error) => console.log(error));
+
     history.push({ pathname: location.pathname, search: `query=${nameFilm}` });
   };
 

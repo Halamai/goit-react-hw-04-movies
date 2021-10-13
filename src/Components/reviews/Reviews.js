@@ -5,10 +5,12 @@ const Reviews = ({ id }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetchMoviesRevievs(id).then((reviews) => {
-      setReviews([...reviews]);
-      // console.log(reviews);
-    });
+    fetchMoviesRevievs(id)
+      .then((reviews) => {
+        setReviews([...reviews]);
+        // console.log(reviews);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   return (
